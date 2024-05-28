@@ -22,18 +22,18 @@ export default defineConfig({
         //   external: `Promise.resolve(window.__shell__.UI_URL + '/assets/remote.js')`,
         //   externalType: "promise",
         // },
-        // shared: {
-        //   react: { singleton: true },
-        //   "react-dom": { singleton: true },
-        // },
       },
+      shared: ["react", "react-dom"],
     }),
   ],
   build: {
     target: "esnext",
-    minify: false,
+    // target: ["chrome90", "firefox90", "safari22"],
+    // minify: false,
   },
-  // optimizeDeps: {
-  //   include: ["react", "react-dom", "@mui/material"],
-  // },
+  esbuild: {
+    supported: {
+      "top-level-await": true,
+    },
+  },
 });

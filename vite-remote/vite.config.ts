@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import * as path from "path";
 import federation from "@originjs/vite-plugin-federation";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
   server: {
@@ -54,12 +55,16 @@ export default defineConfig({
       name: "remote",
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": "./src/ui/Button",
+        "./ui": "./src/ui",
+        "./app": "./src/App",
       },
       // remotes: {
       //   ui: process.env.UI_BASE_URL || 'localhost:3333/assets/remoteUI.js',
       // },
-      shared: ["react", "react-dom", "@mui/material"],
+      shared: ["react", "react-dom"],
+    }),
+    dts({
+      outDir: "../@remote-dts",
     }),
   ],
   resolve: {

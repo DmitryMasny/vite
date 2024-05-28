@@ -4,4 +4,4 @@ export const Button = (props: ButtonProps) => {
   return <MuiButton {...props}>{props.children}</MuiButton>;
 };
 
-export default Button;
+export default Button as typeof MuiButton;

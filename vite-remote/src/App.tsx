@@ -42,7 +42,7 @@ function App() {
       </StyledBox>
       <h1>Hi {name}</h1>
       <div className="card">
-        <Button onClick={handleGetList}>GET</Button>
+        <Button onClick={handleGetList}>GET 23</Button>
       </div>
     </>
   );
